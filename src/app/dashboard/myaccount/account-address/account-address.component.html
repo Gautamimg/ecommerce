@@ -1,0 +1,500 @@
+<!--====== App Content ======-->
+<div class="app-content">
+    <!--====== Section 1 ======-->
+    <div class="u-s-p-y-60">
+        <!--====== Section Content ======-->
+        <div class="section__content">
+            <div class="container">
+                <div class="breadcrumb">
+                    <div class="breadcrumb__wrap">
+                        <ul class="breadcrumb__list">
+                            <li class="has-separator">
+                                <a href="index.html">Home</a>
+                            </li>
+                            <li class="is-marked">
+                                <a href="dash-address-book.html">My Account</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--====== End - Section 1 ======-->
+
+    <!--====== Section 2 ======-->
+    <div class="u-s-p-b-60">
+        <!--====== Section Content ======-->
+        <div class="section__content">
+            <div class="dash">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-12">
+                            <!--====== Dashboard Features ======-->
+                            <div class="dash__box dash__box--bg-white dash__box--shadow u-s-m-b-30">
+                                <div class="dash__pad-1">
+                                    <span class="dash__text u-s-m-b-16">Hello, John Doe</span>
+                                    <ul class="dash__f-list">
+                                        <li>
+                                            <a href="dashboard.html">Manage My Account</a>
+                                        </li>
+                                        <li>
+                                            <a href="dash-my-profile.html">My Profile</a>
+                                        </li>
+                                        <li>
+                                            <a class="dash-active" href="dash-address-book.html">Address Book</a
+                      >
+                    </li>
+                    <li>
+                      <a href="dash-track-order.html">Track Order</a>
+                                        </li>
+                                        <li>
+                                            <a href="dash-my-order.html">My Orders</a>
+                                        </li>
+                                        <li>
+                                            <a href="dash-payment-option.html">My Payment Options</a>
+                                        </li>
+                                        <li>
+                                            <a href="dash-cancellation.html">My Returns & Cancellations</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="dash__box dash__box--bg-white dash__box--shadow dash__box--w"
+              >
+                <div class="dash__pad-1">
+                  <ul class="dash__w-list">
+                    <li>
+                      <div class="dash__w-wrap">
+                        <span class="dash__w-icon dash__w-icon-style-1"
+                          ><i class="fas fa-cart-arrow-down"></i
+                        ></span>
+
+                        <span class="dash__w-text">4</span>
+
+                        <span class="dash__w-name">Orders Placed</span>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="dash__w-wrap">
+                        <span class="dash__w-icon dash__w-icon-style-2"
+                          ><i class="fas fa-times"></i
+                        ></span>
+
+                        <span class="dash__w-text">0</span>
+
+                        <span class="dash__w-name">Cancel Orders</span>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="dash__w-wrap">
+                        <span class="dash__w-icon dash__w-icon-style-3"
+                          ><i class="far fa-heart"></i
+                        ></span>
+
+                        <span class="dash__w-text">0</span>
+
+                        <span class="dash__w-name">Wishlist</span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!--====== End - Dashboard Features ======-->
+            </div>
+            <div class="col-lg-9 col-md-12">
+              <div
+                class="dash__box dash__box--shadow dash__box--radius dash__box--bg-white u-s-m-b-30"
+              >
+                <div class="dash__pad-2">
+                  <div class="dash__address-header">
+                    <h1 class="dash__h1">Address Book</h1>
+                    <div>
+                      <span class="dash__link dash__link--black u-s-m-r-8">
+                        <a href="dash-address-make-default.html"
+                          >Make default shipping address</a
+                        ></span
+                      >
+
+                      <span class="dash__link dash__link--black">
+                        <a href="dash-address-make-default.html"
+                          >Make default shipping address</a
+                        ></span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="dash__box dash__box--shadow dash__box--bg-white dash__box--radius u-s-m-b-30"
+              >
+                <div class="dash__table-2-wrap gl-scroll">
+                  <table class="dash__table-2">
+                    <thead>
+                      <tr>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                        <th>Full Name</th>
+                        <th>Address</th>
+                        <th>Region</th>
+                        <th>Phone Number</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let user of user_address; let i = index">
+                        <td>
+                          <a type="button"
+                           type="button"
+                           data-bs-toggle="modal"
+                           data-bs-target="#exampleModall"
+                            class="address-book-edit btn--e-transparent-platinum-b-2"
+                            (click)="edit_button(user)"
+                            >Edit</a
+                          >
+                        </td>
+                        <td>
+                          <a
+                            type="button"
+                            class="address-book-edit btn--e-transparent-platinum-b-2"
+                            (click)="delete_button(user.id)"
+                            >Delete</a
+                          >
+                        </td>
+                        <td>{{ user.name }}</td>
+                        <td>{{ user.address_line1 }}</td>
+                        <td>{{ user.address_line2 }}</td>
+                        <td>{{ user.mobile }}</td>
+                        <td>
+                          <div class="gl-text">Default Shipping Address</div>
+                          <div class="gl-text">Default Billing Address</div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+              >
+                <a class="dash__custom-link btn--e-brand-b-2"
+                  ><i class="fas fa-plus u-s-m-r-8"></i>
+
+                  <span>Add New Address</span></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--====== End - Section Content ======-->
+  </div>
+  <!--====== End - Section 2 ======-->
+</div>
+<!--====== End - App Content ======-->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="col-lg-12 col-md-12">
+          <div
+            class="dash__box dash__box--shadow dash__box--radius dash__box--bg-white"
+          >
+            <div class="dash__pad-2">
+              <h1 class="dash__h1 u-s-m-b-14">Add Address</h1>
+
+              <span class="dash__text u-s-m-b-30"
+                >We need an address where we could deliver products.</span
+              >
+              <form
+                [formGroup]="add_address_form"
+                class="dash-address-manipulation"
+              >
+                <div class="gl-inline">
+                  <div class="u-s-m-b-30">
+                    <label class="gl-label" for="address-fname">NAME *</label>
+
+                    <input
+                      formControlName="name"
+                      class="input-text input-text--primary-style"
+                      type="text"
+                      id="address-fname"
+                      placeholder="John Doe"
+                    />
+                  </div>
+                  <!-- <div class="u-s-m-b-30">
+
+                                        <label class="gl-label" for="address-lname">Phone *</label>
+
+                                        <input class="input-text input-text--primary-style" type="number" id="address-lname" placeholder="Doe"></div> -->
+                </div>
+                <div class="gl-inline">
+                  <div class="u-s-m-b-30">
+                    <label class="gl-label" for="address-fname">Email *</label>
+
+                    <input
+                      formControlName="email"
+                      class="input-text input-text--primary-style"
+                      type="email"
+                      id="address-fname"
+                      placeholder="John Doe"
+                    />
+                  </div>
+                  <div class="u-s-m-b-30">
+                    <label class="gl-label" for="address-lname">Phone *</label>
+
+                    <input
+                      formControlName="mobile"
+                      class="input-text input-text--primary-style"
+                      type="text"
+                      id="address-lname"
+                      placeholder="Doe"
+                    />
+                  </div>
+                </div>
+                <div class="gl-inline">
+                  <div class="u-s-m-b-30">
+                    <label class="gl-label" for="address-street"
+                      >STREET ADDRESS 1*</label
+                    >
+
+                    <input
+                      formControlName="address_line1"
+                      class="input-text input-text--primary-style"
+                      type="text"
+                      id="address-street"
+                      placeholder="4247 Ashford Drive Virginia"
+                    />
+                  </div>
+                  <div class="u-s-m-b-30">
+                    <label class="gl-label" for="address-street"
+                      >STREET ADDRESS 2*</label
+                    >
+
+                    <input
+                      formControlName="address_line2"
+                      class="input-text input-text--primary-style"
+                      type="text"
+                      id="address-street"
+                      placeholder="4247 Ashford Drive Virginia"
+                    />
+                  </div>
+                </div>
+                <div class="gl-inline">
+                  <div class="u-s-m-b-30">
+                    <!--====== Select Box ======-->
+
+                    <label class="gl-label" for="address-country"
+                      >COUNTRY *</label
+                    >
+                    <select
+                      formControlName="country_id"
+                      class="select-box select-box--primary-style"
+                      id="address-country"
+                    >
+                      <option
+                        *ngFor="let country of country_list"
+                        value="{{ country.id }}"
+                      >
+                        {{ country.name }}
+                      </option>
+                    </select>
+                    <!--====== End - Select Box ======-->
+                  </div>
+                </div>
+                <div class="gl-inline">
+                  <div class="u-s-m-b-30">
+                    <label class="gl-label" for="address-street"
+                      >ZIP/POSTAL CODE *</label
+                    >
+                    pincode:['']
+                    <input
+                      formControlName="pincode"
+                      class="input-text input-text--primary-style"
+                      type="text"
+                      id="address-postal"
+                      placeholder="20006"
+                    />
+                  </div>
+                </div>
+
+                <button
+                  class="btn btn--e-brand-b-2"
+                  (click)="submit_address()"
+                  type="submit"
+                >
+                  SAVE
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="exampleModall"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="col-lg-12 col-md-12">
+          <div
+            class="dash__box dash__box--shadow dash__box--radius dash__box--bg-white"
+          >
+            <div class="dash__pad-2">
+              <h1 class="dash__h1 u-s-m-b-14">Edit Address</h1>
+
+              <span class="dash__text u-s-m-b-30"
+                >We need an address where we could deliver products.</span
+              >
+              <form
+                [formGroup]="update_address_form"
+                class="dash-address-manipulation"
+              >
+                <div class="gl-inline">
+                  <div class="u-s-m-b-30">
+                    <label class="gl-label" for="address-fname">NAME *</label>
+
+                    <input
+                      
+                      formControlName="name"
+                      class="input-text input-text--primary-style"
+                      type="text"
+                      id="address-fname"
+                      value="{{user_name}}"
+                      placeholder="{{user_name}}"
+                    />
+                  </div>
+                  <!-- <div class="u-s-m-b-30">
+
+                                        <label class="gl-label" for="address-lname">Phone *</label>
+
+                                        <input class="input-text input-text--primary-style" type="number" id="address-lname" placeholder="Doe"></div> -->
+                </div>
+                <div class="gl-inline">
+                  <div class="u-s-m-b-30">
+                    <label class="gl-label" for="address-fname">Email *</label>
+
+                    <input
+                      formControlName="email"
+                      class="input-text input-text--primary-style"
+                      type="email"
+                      id="address-fname"
+                      value="{{user_email}}"
+                      placeholder="{{user_email}}"
+                    />
+                  </div>
+                  <div class="u-s-m-b-30">
+                    <label class="gl-label" for="address-lname">Phone *</label>
+
+                    <input
+                      formControlName="mobile"
+                      class="input-text input-text--primary-style"
+                      type="text"
+                      id="address-lname"
+                      value="{{user_mobile}}"
+                      placeholder="{{user_mobile}}"
+                    />
+                  </div>
+                </div>
+                <div class="gl-inline">
+                  <div class="u-s-m-b-30">
+                    <label class="gl-label" for="address-street"
+                      >STREET ADDRESS 1*</label
+                    >
+
+                    <input
+                      formControlName="address_line1"
+                      class="input-text input-text--primary-style"
+                      type="text"
+                      id="address-street"
+                      value="{{user_address_line1}}"
+                      placeholder="{{user_address_line1}}"
+                    />
+                  </div>
+                  <div class="u-s-m-b-30">
+                    <label class="gl-label" for="address-street"
+                      >STREET ADDRESS 2*</label
+                    >
+
+                    <input
+                      formControlName="address_line2"
+                      class="input-text input-text--primary-style"
+                      type="text"
+                      id="address-street"
+                      value="{{user_address_line2}}"
+                      placeholder="{{user_address_line2}}"
+                    />
+                  </div>
+                </div>
+                <div class="gl-inline">
+                  <div class="u-s-m-b-30">
+                    <!--====== Select Box ======-->
+
+                    <label class="gl-label" for="address-country"
+                      >COUNTRY *</label
+                    >
+                    <select
+                      formControlName="country_id"
+                      class="select-box select-box--primary-style"
+                      id="address-country"
+                    >
+                      <option
+                        *ngFor="let country of country_list"
+                        value="{{ country.id }}"
+                      >
+                        {{ country.name }}
+                      </option>
+                    </select>
+                    <!--====== End - Select Box ======-->
+                  </div>
+                </div>
+                <div class="gl-inline">
+                  <div class="u-s-m-b-30">
+                    <label class="gl-label" for="address-street"
+                      >ZIP/POSTAL CODE *</label
+                    >
+                    pincode:['']
+                    <input
+                      formControlName="pincode"
+                      class="input-text input-text--primary-style"
+                      type="text"
+                      value="{{user_pincode}}"
+                      placeholder="{{user_pincode}}"
+                    />
+                  </div>
+                </div>
+
+                <button
+                  class="btn btn--e-brand-b-2"
+                  (click)="submit_editaddress()"
+                  type="submit"
+                >
+                  SAVE
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,144 @@
+<!--====== App Content ======-->
+<div class="app-content">
+
+    <!--====== Section 1 ======-->
+    <div class="u-s-p-y-60">
+
+        <!--====== Section Content ======-->
+        <div class="section__content">
+            <div class="container">
+                <div class="breadcrumb">
+                    <div class="breadcrumb__wrap">
+                        <ul class="breadcrumb__list">
+                            <li class="has-separator">
+
+                                <a href="index.html">Home</a></li>
+                            <li class="is-marked">
+
+                                <a href="wishlist.html">Wishlist</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--====== End - Section 1 ======-->
+
+
+    <!--====== Section 2 ======-->
+    <div class="u-s-p-b-60">
+
+        <!--====== Section Intro ======-->
+        <div class="section__intro u-s-m-b-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section__text-wrap">
+                            <h1 class="section__heading u-c-secondary">Wishlist</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--====== End - Section Intro ======-->
+
+
+        <!--====== Section Content ======-->
+        <div class="section__content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+
+                        <!--====== Wishlist Product ======-->
+                        <div class="w-r u-s-m-b-30">
+                            <div class="w-r__container" *ngFor="let wish of wish_list_data">
+                                <div class="w-r__wrap-1">
+                                    <div class="w-r__img-wrap">
+
+                                        <img class="u-img-fluid" src="{{wish.first_image}}"></div>
+                                    <div class="w-r__info">
+
+                                        <span class="w-r__name">
+
+                                            <a href="product-detail.html">{{wish.name}}</a></span>
+
+                                        <span class="w-r__category">
+
+                                            <a href="shop-side-version-2.html">{{wish.slug}}</a></span>
+
+                                        <span class="w-r__price">&#x20B9; {{wish.offer_price}}
+
+                                            <span class="w-r__discount">&#x20B9; {{wish.sale_price}}</span></span>
+                                    </div>
+                                </div>
+                                <div class="w-r__wrap-2">
+                                    <a class="w-r__link btn--e-brand-b-2" (click)="add_cart(wish)" data-modal="modal" data-modal-id="#add-to-cart">ADD TO CART</a>
+                                    <a (click)="wishlist_remove(wish)" class="w-r__link btn--e-transparent-platinum-b-2">REMOVE</a></div>
+                            </div>
+                        </div>
+                        <!--====== End - Wishlist Product ======-->
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="route-box">
+                            <div class="route-box__g">
+
+                                <a class="route-box__link" href="shop-side-version-2.html"><i class="fas fa-long-arrow-alt-left"></i>
+
+                                    <span>CONTINUE SHOPPING</span></a></div>
+                            <div class="route-box__g">
+
+                                <a class="route-box__link"><i class="fas fa-trash"></i>
+
+                                    <span>CLEAR WISHLIST</span></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--====== End - Section Content ======-->
+    </div>
+    <!--====== End - Section 2 ======-->
+</div>
+<!--====== End - App Content ======-->
+<div class="modal fade show" id="add-to-cart" style="display: block; padding-right: 17px;">
+    <div class="modal-dialog modal-dialog-centered">
+        <div (click)="dismis()" class="modal-content modal-radius modal-shadow">
+
+            <button class="btn dismiss-button fas fa-times" type="button" data-dismiss="modal"></button>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                        <div class="success u-s-m-b-30">
+                            <div class="success__text-wrap"><i class="fas fa-check"></i>
+
+                                <span>Item is added successfully!</span></div>
+                            <div class="success__img-wrap">
+
+                                <img class="u-img-fluid" src="{{addto_cart_val?.first_image}}" alt=""></div>
+                            <div class="success__info-wrap">
+
+                                <span class="success__name">{{addto_cart_val?.name}}</span>
+
+                                <span class="success__quantity">Quantity: 1</span>
+
+                                <span class="success__price">{{addto_cart_val?.offer_price}}</span></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                        <div class="s-option">
+
+                            <span class="s-option__text">1 item (s) in your cart</span>
+                            <div class="s-option__link-box">
+
+                                <a class="s-option__link btn--e-white-brand-shadow" data-dismiss="modal">CONTINUE SHOPPING</a>
+
+                                <a class="s-option__link btn--e-white-brand-shadow" (click)="view_cart(addto_cart_val)">VIEW CART</a>
+
+                                <a class="s-option__link btn--e-brand-shadow">PROCEED TO CHECKOUT</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

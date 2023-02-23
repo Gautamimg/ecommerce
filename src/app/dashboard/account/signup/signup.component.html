@@ -1,0 +1,147 @@
+<!--====== App Content ======-->
+<div class="app-content">
+
+    <!--====== Section 1 ======-->
+    <div class="u-s-p-y-60">
+
+        <!--====== Section Content ======-->
+        <div class="section__content">
+            <div class="container">
+                <div class="breadcrumb">
+                    <div class="breadcrumb__wrap">
+                        <ul class="breadcrumb__list">
+                            <li class="has-separator">
+
+                                <a routerLink="/">Home</a></li>
+                            <li class="is-marked">
+
+                                <a routerLink="/signup">Signup</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--====== End - Section 1 ======-->
+
+
+    <!--====== Section 2 ======-->
+    <div class="u-s-p-b-60">
+
+        <!--====== Section Intro ======-->
+        <div class="section__intro u-s-m-b-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section__text-wrap">
+                            <h1 class="section__heading u-c-secondary">CREATE AN ACCOUNT</h1>
+                            <!-- <button class="section__heading u-c-secondary">submit</button> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--====== End - Section Intro ======-->
+
+
+        <!--====== Section Content ======-->
+        <div class="section__content">
+            <div class="container">
+                <div class="row row--center">
+                    <div class="col-lg-6 col-md-8 u-s-m-b-30">
+                        <div class="l-f-o">
+                            <div class="l-f-o__pad-box">
+                                <h1 class="gl-h1">PERSONAL INFORMATION</h1>
+                                <form class="l-f-o__form">
+                                    <div class="gl-s-api">
+                                        <div class="u-s-m-b-15">
+
+                                            <button class="gl-s-api__btn gl-s-api__btn--fb" type="button"><i class="fab fa-facebook-f"></i>
+
+                                                <span (click)="signInWithFB()">Signup with Facebook</span></button></div>
+                                        <div class="u-s-m-b-30">
+
+                                            <button (click)="signInWith_google()" class="gl-s-api__btn gl-s-api__btn--gplus" type="button"><i class="fab fa-google"></i>
+
+                                                <span>Signup with Google</span></button></div>
+                                    </div>
+                                    <form [formGroup]="create_account" (ngSubmit)="submit_email()">
+                                        <div class="u-s-m-b-30">
+
+                                            <label class="gl-label" for="reg-fname">FIRST NAME *</label>
+
+                                            <input class="input-text input-text--primary-style" formControlName="name" type="text" id="reg-fname" placeholder="First Name"><br>
+                                            <small style="color:red ;" *ngIf="!create_account.get('name')?.valid && submitForm">please enter valid number</small>
+                                        </div>
+
+                                        <div class="u-s-m-b-30">
+
+                                            <label class="gl-label" for="reg-email">E-MAIL *</label>
+
+                                            <input class="input-text input-text--primary-style" formControlName="email" type="text" id="reg-email" placeholder="Enter E-mail"><br>
+                                            <small style="color:red ;" *ngIf="!create_account.get('email')?.valid && submitForm">please enter valid number</small>
+                                        </div>
+                                        <div class="u-s-m-b-30">
+
+                                            <label class="gl-label" for="reg-password">PASSWORD *</label>
+
+                                            <input class="input-text input-text--primary-style" formControlName="password" type="text" id="reg-password" placeholder="Enter Password"><br>
+                                            <small style="color:red ;" *ngIf="!create_account.get('password')?.valid && submitForm">please enter valid number</small>
+                                        </div>
+                                        <div class="u-s-m-b-15">
+
+                                            <!-- <button class="btn btn--e-transparent-brand-b-2" data-bs-toggle="modal" data-bs-target="#otpmodal" type="button">CREATE</button> -->
+                                            <button class="btn btn--e-transparent-brand-b-2" (click)='submit_email()' data-bs-toggle="modal" data-bs-target="#otpmodal" type="button">CREATE</button>
+                                        </div>
+                                    </form>
+                                    <a class="gl-link" href="#">Return to Store</a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--====== End - Section Content ======-->
+    </div>
+    <!--====== End - Section 2 ======-->
+</div>
+<!--====== End - App Content ======-->
+<div class="modal fade" id="otpmodal">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content modal-radius modal-shadow">
+
+            <button class="btn dismiss-button fas fa-times" type="button" data-bs-dismiss="modal"></button>
+            <div class="modal-body">
+                <!-- Phone Otp -->
+                <div class="container" id="phoneOTP" style="margin: 108px -2px;">
+                    <div class="row">
+                        <div class="col-lg-12" style="text-align: center;">
+                            <h2 style="color: #e22929;">Verify your phone number</h2>
+                            <p>Please enter the 5 digit code sent to XXX-XXX-XXX</p>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+
+                        <div class="col-lg-12" style="text-align: center;">
+                            <input type="tel" [(ngModel)]="input_1" name="pass1" maxlength="1" size="1" required id="pass1" style="font-weight: 600; font-size: 21px; padding: 20px 22px 21px; height: 60px;width: 60px;"> &nbsp;
+                            <input type="tel" [(ngModel)]="input_2" maxlength="1" size="1" required id="pass2" style="font-weight: 600; font-size: 21px; padding: 20px 22px 21px; height: 60px;width: 60px;"> &nbsp;
+                            <input type="tel" [(ngModel)]="input_3" maxlength="1" size="1" required id="pass3" style="font-weight: 600; font-size: 21px; padding: 20px 22px 21px; height: 60px;width: 60px;"> &nbsp;
+                            <input type="tel" [(ngModel)]="input_4" maxlength="1" size="1" required id="pass4" style="font-weight: 600; font-size: 21px; padding: 20px 22px 21px; height: 60px;width: 60px;"> &nbsp;
+                            <i (click)="sumbit_otp()" class="fa fa-arrow-right" aria-hidden="true" style="cursor: pointer; position: relative;left: 25px;font-size: 29px;"></i>
+                        </div>
+
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-lg-12" style="text-align: center;">
+                            <p style=" font-size: 18px; font-weight: 700;">Didn’t recieve a code? <span style="color: #e22929;">Resend it</span></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
