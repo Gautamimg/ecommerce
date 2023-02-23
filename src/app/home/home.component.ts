@@ -30,10 +30,11 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.serve.get('/slider-list').subscribe((res: any) => {
-      console.log(res);
-      this.slider_image = res.result[0];
+    console.log(res);
+    this.slider_image = res.result[0];
     });
     $('#addtocart').hide();
+
     $('.owl-carousel').owlCarousel({
       loop: true,
       nav: true,
@@ -52,8 +53,8 @@ export class HomeComponent implements OnInit {
     });
 
     this.serve.get('/categorylist').subscribe((res: any) => {
-      this.top_rated = res.result;
-      console.log(res);
+    this.top_rated = res.result;
+    console.log(res);
     });
     $('#add-to-cart').hide();
   }
@@ -64,6 +65,7 @@ export class HomeComponent implements OnInit {
     $('#child_2').hide();
     this.parent_div = true;
   }
+
   categry(id: any) {
     $('#parent_div').hide();
     $('#child_1').show();
@@ -79,31 +81,178 @@ export class HomeComponent implements OnInit {
     this.child_data = this.top_rated[id].child;
     console.log(this.child_data);
   }
+
   get_id_1(id: any) {
     $('#child_1').hide();
     $('#child_2').show();
     this.child_data_1 = this.child_data[id].child;
-    console.log(this.child_data_1);
+    console.log(this.child_data_1); 
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+    console.log("hsbbsbkccb")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   }
+
   dismis() {
-    $('#add-to-cart').modal('toggle');
+  $('#add-to-cart').modal('toggle');
   }
+
   add_cart_form = this.fb.group({
-    product_id: [''],
-    qty: '1',
-    remark: 'Test',
-    add_type: 'add',
+  product_id: [''],
+  qty: '1',
+  remark: 'Test',
+  add_type: 'add',
   });
+  
   toggle(val: any) {
-    console.log(val);
-    this.addto_cart_val = val;
-    this.add_cart_form.controls['product_id'].setValue(val.id);
-    console.log(this.add_cart_form.value);
+  console.log(val);
+  this.addto_cart_val = val;
+  this.add_cart_form.controls['product_id'].setValue(val.id);
+  console.log(this.add_cart_form.value);
+
     if (this.add_cart_form.valid) {
-      this.serve
-        .post('/add-cart', this.add_cart_form.value)
-        .subscribe((res: any) => {
-          console.log(res);
+    this.serve
+    .post('/add-cart', this.add_cart_form.value)
+    .subscribe((res: any) => {
+     console.log(res);
           this.res_data = res;
           if (res.message == 'Item successfully added into cart.') {
             this.serve.get('/cart-list').subscribe((res: any) => {
